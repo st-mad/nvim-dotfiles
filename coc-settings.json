@@ -1,0 +1,29 @@
+{
+  "codeLens.enable": true,
+  "java.enabled": true,
+  "java.home": "/usr/local/java/amazon-corretto-18.0.2.9.1-linux-x64/",
+  "codeLens.position": "eol",
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "coc.preferences.enableMessageDialog": true,
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.willSaveHandlerTimeout": 1000,
+  "coc.preferences.enableLinkedEditing": true,
+  "coc.source.file.ignoreHidden": false,
+  "diagnostic.floatConfig": {
+    "rounded": true,
+    "border": true
+  },
+  "diagnostic.format": "%message [%source]",
+  "diagnostic.virtualText": true,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.separateRelatedInformationAsDiagnostics": true,
+  "list.normalMappings": {
+    "<C-c>": "do:exit"
+  },
+  "list.insertMappings": {
+    "<C-c>": "do:exit"
+  },
+  "languageserver": {},
+  "snippets.ultisnips.pythonPrompt": false,
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.6/clangd_15.0.6/bin/clangd"
+}
