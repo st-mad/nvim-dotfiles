@@ -18,8 +18,9 @@ Plug 'nvim-telescope/telescope.nvim'
 " start screen
 Plug 'mhinz/vim-startify'
 " autocomplete/ integrated with TabNine
-Plug 'tabnine/YouCompleteMe', { 'do': './install.py' }
+"Plug 'tabnine/YouCompleteMe', { 'do': './install.py' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'codota/tabnine-nvim', { 'do': './dl_binaries.sh' }
 " toml syntax highlighting
 Plug 'cespare/vim-toml', { 'branch': 'main' }
 " themes and cosmetic
@@ -30,11 +31,17 @@ Plug 'dracula/vim'
 Plug 'https://github.com/sainnhe/everforest'
 " languages
 Plug 'lervag/vimtex'
+"Plug 'da-h/AirLatex.vim', {'do': ':UpdateRemotePlugins'}
 "Plug 'ryanoasis/vim-devicons'
 call plug#end()
-colorscheme gruvbox
+
+"let g:AirLatexUsername="sms31@st-andrews.ac.uk"
+" optional: set server name
+"let g:AirLatexDomain="www.overleaf.com"
+
+"colorscheme gruvbox
 "colorscheme dracula
-"colorscheme everforest
+colorscheme everforest
 let g:gruvbox_contrast_dark = 'hard'
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -81,11 +88,10 @@ set shell=fish
 "noremap l j
 "noremap j h
 "noremap h ;
-
 " Startify
 map <M-l> :Startify<Enter>
 
-let g:startify_bookmarks = [{'v': '~/.config/nvim/init.vim'}]
+let g:startify_bookmarks = [{'c': '~/prog_proj'}, {'g': '~/vault/personalVault/Goals.md'},{'v': '~/.config/nvim/init.vim'}, {'f' : '~/.config/BraveSoftware/Brave-Browser/'}]
 
 " tagbar
 nmap <M-C> :TagbarToggle<CR>
@@ -104,15 +110,28 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
     "nnoremap K :YcmCompleter GetDoc<cr>
     "nnoremap ; :YcmCompleter GetType<cr>
 
+"lua <<EOF
+"require('tabnine').setup({
+  "disable_auto_comment=true,
+  "accept_keymap="<Tab>",
+  "dismiss_keymap = "<C-]>",
+  "debounce_ms = 800,
+  "suggestion_color = {gui = "#808080", cterm = 244},
+  "exclude_filetypes = {"TelescopePrompt", "NvimTree"},
+  "log_file_path = nil, -- absolute path to Tabnine log file
+"})
+"EOF
+
+
 "coc prettier
 map <M-f> <Plug>(coc-format-selected) 
 
 " coc shits
 let g:coc_global_extensions = [
+    \'coc-tabnine',
     \'coc-json',
     \'coc-pairs',
     \'coc-prettier',
-    \'coc-tabnine',
     \'coc-rust-analyzer',
     \'coc-snippets',
     \'coc-tsserver',
@@ -120,12 +139,16 @@ let g:coc_global_extensions = [
     \'coc-java',
     \'coc-java-debug',
     \'coc-clangd',
+    \'coc-html',
+    \'coc-css',
+    \'coc-git',
+    \'coc-yank',
 \]
 
 " coc-java-debug
 nmap <F1> :CocCommand java.debug.vimspector.start<CR>
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> chitc#refresh()
+inoremap <silent><expr> <c-space> coc#refresh()
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
