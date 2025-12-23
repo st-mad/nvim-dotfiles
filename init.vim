@@ -31,17 +31,27 @@ Plug 'dracula/vim'
 Plug 'https://github.com/sainnhe/everforest'
 " languages
 Plug 'lervag/vimtex'
+Plug 'https://github.com/Julian/lean.nvim'
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/plenary.nvim'
+
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/nvim-cmp'
 "Plug 'da-h/AirLatex.vim', {'do': ':UpdateRemotePlugins'}
 "Plug 'ryanoasis/vim-devicons'
 call plug#end()
+
 
 "let g:AirLatexUsername="sms31@st-andrews.ac.uk"
 " optional: set server name
 "let g:AirLatexDomain="www.overleaf.com"
 
-"colorscheme gruvbox
+colorscheme gruvbox
 "colorscheme dracula
-colorscheme everforest
+"colorscheme everforest
 let g:gruvbox_contrast_dark = 'hard'
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
